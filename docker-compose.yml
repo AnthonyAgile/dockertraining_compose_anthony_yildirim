@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+    dockertraining_compose_anthony_yildirim:
+        image: dockertraining_compose_anthony_yildirim
+        build:
+            context: .
+            dockerfile: dockertraining_compose_anthony_yildirim/Dockerfile
+        ports:
+        - "8091:80"
+        container_name: api_container
+        networks:
+        - overlay
+        depends_on:
+        - database_container
+
+    database_container:
+        image: mysql
+        ports:
+        - "3018:3306"
+        container_name: database_container
+        environment:
+        - MYSQL_SERVER=localhost
+        - MYSQL_DATABASE=anthonydb
+        - MYSQL_RANDOM_ROOT_PASSWORD=yes
+        - MYSQL_USER=anthony
+        - MYSQL_PASSWORD=anthony
+        volumes:
+        - anthony_volume:/var/lib/mysql
+        networks:
+        - overlay
+
+volumes:
+    anthony_volume: { }
+
+networks:
+  overlay:
