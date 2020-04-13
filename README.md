@@ -29,3 +29,4 @@ docker-compose -f "C:\code\dockertraining_compose_anthony_yildirim\docker-compos
 #launch browser and enjoy
 start http://localhost:8091/api/stock/1
 </pre>
+<IMG SRC='https://github.com/AnthonyAgile/dockertraining_compose_anthony_yildirim/blob/master/COMPOSE_AY.png' />
